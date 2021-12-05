@@ -2,7 +2,16 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
+
 <h1>{{ title }}</h1>
+
+{% if currentRead %}
+<div class="progress">
+  <div class="progress__bar" style="width: {{ progress }};"></div>
+</div>
+{% endif %}
+
+<img class="book__image" src="{{ image }}"alt="{{ imageAlt }}">
 
 <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 {%- for tag in tags | filterTagList -%}
