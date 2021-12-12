@@ -9,7 +9,7 @@ layout: layouts/post.njk
 image: '../../img/covers/saga-1.jpg'
 imageAlt: 'Saga, Vol. 1'
 currentRead: true
-progress: 20%
+progress: 21%
 book:
   author: ' Brian K. Vaughan & Fiona Staples'
   startDate: 2021-12-09
