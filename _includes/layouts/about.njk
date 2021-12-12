@@ -1,17 +1,14 @@
 ---
 layout: layouts/base.njk
-templateClass: tmpl-home
+templateClass: tmpl-about
 ---
-<div class="cover">
-  <img src="img/coffee.gif" alt="" class="cover__img">
-</div>
 <div class="l-wrap">
   <header class="nav">
     <a class="button" href="/"><img src="/img/pagemelt-button.png">
     </a>
     <div class="l-box">
       <div class="dropdown">
-        <a class="nav__link link" href="/about/"><span>About</span><i class="nav__icon fas fa-caret-down"></i><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 152.9 43.4" style="enable-background:new 0 0 152.9 43.4;" xml:space="preserve">
+        <a class="nav__link nav__link--active link" href="/about/"><span>About</span><i class="nav__icon fas fa-caret-down"></i><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 152.9 43.4" style="enable-background:new 0 0 152.9 43.4;" xml:space="preserve">
         <path d="M151.9,13.6c0,0,3.3-9.5-85-8.3c-97,1.3-58.3,29-58.3,29s9.7,8.1,69.7,8.1c68.3,0,69.3-23.1,69.3-23.1 s1.7-10.5-14.7-18.4"/>
         </svg></a>
         <ul class="dropdown__list">
@@ -27,25 +24,7 @@ templateClass: tmpl-home
       </a>
     </div>
   </header>
-  <div class="main">
-    <h1 class="h1">@pagemelt</h1>
-    <p>Mel Thomas</p>
-    <p>she/they</p>
-    <p>pagemelt@gmail.com</p>
-    <div class="socials">
-      <a href="https://open.spotify.com/user/122690037?si=7d3f4ca16bbe499e" class="link socials__link">
-        <i class="fab fa-spotify" aria-hidden="true"></i>
-      </a>
-      <a href="https://www.tiktok.com/@pagemelt" class="link socials__link">
-        <i class="fab fa-tiktok" aria-hidden="true"></i>
-      </a>
-      <a href="https://twitter.com/pagemelt" class="link socials__link">
-        <i class="fab fa-twitter" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-  <main>
+  <main class="main">
     {{ content | safe }}
   </main>
 </div>
-

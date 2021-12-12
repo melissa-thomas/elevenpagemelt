@@ -1,0 +1,275 @@
+
+/* post layout */
+
+.tmpl-post {
+  color: var(--base-dark);
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .tmpl-post {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+.tmpl-post .l-wrap {
+  justify-content: flex-start;
+}
+
+.tmpl-post .progress {
+  margin: .5em 0;
+  position: relative;
+  top: unset;
+  width: 300px;
+}
+
+@media screen and (max-width: 800px) {
+  .tmpl-post .progress {
+    width: 180px;
+  }
+}
+
+.tmpl-post .main {
+  border: 1px solid var(--base-dark);
+  display: flex;
+  height: auto;
+  justify-content: center;
+  margin: 2em 1em 1em 1em;
+  position: relative;
+}
+
+@media screen and (max-width: 800px) {
+  .tmpl-post .main {
+    margin-top: 1em;
+  }
+}
+
+/* the bookbox container */
+
+.bookbox {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  height: 85vh;
+  padding-bottom: 0;
+  position: relative;
+}
+
+@media screen and (max-width: 800px) {
+  .bookbox {
+    height: auto;
+  }
+}
+
+.tmpl-post .book__image {
+  height: 500px;
+  padding: 1em;
+}
+
+.tmpl-post .book__image.book__image--mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .tmpl-post .book__image {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .tmpl-post .book__image {
+    display: none;
+  }
+
+  .tmpl-post .book__image.book__image--mobile {
+    height: 220px;
+    display: flex;
+    margin-right: 1em;
+  }
+}
+
+.bookbox__details {
+  border-left: 1px solid var(--base-dark);
+  height: 100%;
+  max-width: 700px;
+  overflow: auto;
+  padding: 1em 1em 3em 2em;
+}
+
+@media screen and (max-width: 800px) {
+  .bookbox__details {
+    border-left: none;
+    height: auto;
+    overflow: initial;
+    padding: 1em 1em 6em 1em;
+  }
+}
+
+.bookbox__date {
+  align-items: center;
+  display: flex;
+  margin: .5em 0;
+}
+
+.bookbox__date img {
+  height: 20px;
+  margin: 0 5px 0 0;
+}
+
+.bookbox__title {
+  margin: 0 0 5px 0;
+}
+
+@media screen and (max-width: 800px) {
+  .bookbox__title {
+    font-size: 22px;
+  }
+
+  .bookbox__author {
+    font-size: 18px;
+  }
+}
+
+.bookbox__author,
+.bookbox__date,
+.bookbox__tags {
+  margin: 0 0 20px 0;
+}
+
+/* book details */
+
+.bookbox .link {
+  border-bottom: 1px dashed var(--base-dark);
+  color: var(--base-dark);
+  display: inline;
+  text-decoration: none;
+}
+
+.bookbox .link:hover {
+  background-color: var(--base-yellow);
+  font-style: initial;
+}
+
+/* book detail lists */
+
+.bookbox__details {
+  position: relative;
+}
+
+.bookbox__meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.bookbox__meta::before {
+  font-family: "Font Awesome 5";
+  left: 2em;
+  padding-top: 2px;
+  position: absolute;
+}
+
+@media screen and (max-width: 800px) {
+
+  .bookbox__meta::before {
+    left: 22px;
+  }
+}
+
+.bookbox__meta.bookbox__meta--cw::before {
+  content: "\f071";
+  color: #ff7384;
+}
+
+.bookbox__meta.bookbox__meta--highlights::before {
+  content: "\f10d";
+  color: #ffc267;
+}
+
+.bookbox__meta.bookbox__meta--tiktok::before {
+  font-family: "Font Awesome 5 brands";
+  content: "\e07b";
+  color: #c27dff;
+}
+
+.bookbox__meta.bookbox__meta--thoughts:before {
+  content: "\f303";
+  color: #ff8cdd;
+}
+
+.bookbox__meta.bookbox__meta--highlights li {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.bookbox__meta.bookbox__meta--thoughts li {
+  margin-bottom: 10px;
+}
+
+/* tags */
+
+.bookbox__tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-tag {
+  border-bottom: 1px dashed var(--base-dark);
+  color: var(--base-dark);
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.post-tag:hover {
+  background-color: var(--base-yellow);
+}
+
+/* pagination */
+
+.pagination {
+  background-color: var(--white);
+  border-top: 1px solid var(--base-dark);
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 1em;
+  position: absolute;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .pagination {
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  .pagination li {
+    margin-bottom: 1em;
+  }
+}
+
+.pagination a {
+  color: var(--base-dark);
+  text-decoration: none;
+}
+
+.pagination__link {
+  border-bottom: 1px dashed var(--base-dark);
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+.pagination__link:hover {
+  background-color: var(--base-yellow);
+}

@@ -2,14 +2,12 @@
 {% for post in postslist | reverse %}
   <li class="book postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
     <a href="{{ post.url | url }}" class="postlist-link">
-    {% if post.data.image %}
+    {% if post.data.image and post.data.currentRead %}
+      <img class="book__image book__image--wip" src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}">
+    {% elif post.data.image %}
       <img class="book__image" src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}">
     {% endif %}
-    {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-    {% for tag in post.data.tags | filterTagList %}
-      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-    {% endfor %}
+    </a>
     {% if post.data.currentRead %}
     <div class="progress">
       <div class="progress__bar" style="width: {{ post.data.progress }};"></div>

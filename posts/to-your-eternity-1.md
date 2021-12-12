@@ -1,8 +1,7 @@
 ---
-title: To Your Eternity, Volume 1
+title: To Your Eternity, Vol. 1
 date: 2021-12-04
 tags:
-  - adult
   - manga
   - fantasy
 layout: layouts/post.njk
@@ -10,21 +9,13 @@ image: '../../img/covers/to-your-eternity-1.jpg'
 imageAlt: 'To Your Eternity, Volume 1'
 book:
   author: 'Yoshitoki Ōima'
-  start-date: 2012-12-04
-  end-date: 2012-12-04
+  startDate: 2021-12-04
+  endDate: 2021-12-04
 ---
 
-## Tags
-TK
-
-## Spotify
-TK
-
-## TikToks
-TK
-
-## Highlights
-TK
-
-## Thoughts
-TK
+<ul class="bookbox__meta bookbox__meta--cw">
+  <li><strong>Child death</strong></li>
+  <li><strong>Animal death</strong></li>
+  <li><strong>Blood and gore</strong></li>
+  <li>Grief</li>
+</ul>

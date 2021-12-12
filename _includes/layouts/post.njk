@@ -1,34 +1,42 @@
 ---
-layout: layouts/base.njk
+layout: layouts/library.njk
 templateClass: tmpl-post
 ---
 
-<h1>{{ title }}</h1>
-
-{% if currentRead %}
-<div class="progress">
-  <div class="progress__bar" style="width: {{ progress }};"></div>
+<div class="bookbox">
+  <img class="book__image" src="{{ image }}"alt="{{ imageAlt }}">
+  <div class="bookbox__details">
+    <div class="l-box l-box--center-items">
+      <img class="book__image book__image--mobile" src="{{ image }}"alt="{{ imageAlt }}">
+      <div class="bookbox__metadata">
+        <h1 class="bookbox__title">{{ title }}</h1>
+        <h2 class="bookbox__author">{{ book.author }}</h2>
+        {% if currentRead %}
+        <div class="progress">
+          <div class="progress__bar" style="width: {{ progress }};"></div>
+        </div>
+        <p class="bookbox__date"><img src="/img/book.gif">currently reading</p>
+        {% else %}
+        <p class="bookbox__date">{{ book.startDate | readableDate }} - {{ book.endDate | readableDate }}</p>
+        {% endif %}
+        <div class="bookbox__tags">
+          {%- for tag in tags | filterTagList -%}
+          {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+          <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+    {{ content | safe }}
+  </div>
+  {%- if collections.posts %}
+  {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+  {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+  {%- if nextPost or previousPost %}
+  <ul class="pagination">
+    {%- if nextPost %}<li><a href="{{ nextPost.url | url }}"><i class="fas fa-arrow-left"></i> <span class="pagination__link">{{ nextPost.data.title }}</span></a></li>{% endif %}
+    {%- if previousPost %}<li><a href="{{ previousPost.url | url }}"><span class="pagination__link">{{ previousPost.data.title }}</span><i class="fas fa-arrow-right"></i></a></li>{% endif %}
+  </ul>
+  {%- endif %}
+  {%- endif %}
 </div>
-{% endif %}
-
-<img class="book__image" src="{{ image }}"alt="{{ imageAlt }}">
-
-<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-{%- for tag in tags | filterTagList -%}
-{%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
-<a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{%- endfor %}
-
-{{ content | safe }}
-
-{%- if collections.posts %}
-{%- set nextPost = collections.posts | getNextCollectionItem(page) %}
-{%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-{%- if nextPost or previousPost %}
-<hr>
-<ul>
-  {%- if nextPost %}<li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-  {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-</ul>
-{%- endif %}
-{%- endif %}
