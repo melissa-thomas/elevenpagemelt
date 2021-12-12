@@ -27,5 +27,5 @@ jobs:
       uses: bcomnes/deploy-to-neocities@v1
       with:
         api_token: edec64f2e3d263b77d5e181ac6516e1c
-        cleanup: true
+        cleanup: false
         dist_dir: _site
